@@ -1,21 +1,21 @@
+import { Link } from "react-router-dom";
+import Extra from "./extra";
+import {useState} from "react"; 
 const Navbar = () => {
+    const [isLogin,setLogin]=useState(true);
     return ( 
         <nav className="navbar">
              <div className="site-name panel">
              <div className="container">
                 <div className="row">
-                    <div className="col-1" >
+                    <div className="col-1 " >
                         <img src="https://i.postimg.cc/BnS3VN0q/20230103-225731.png" alt="" style={{
-                        // border: "1px solid white",
                         width:"160px",
                         height:"160px"
                     }}/>
                     </div>
-                    <div className="col-9" >
-                        <h1 style={{
-                        color: "black",
-                        fontSize:"100px"
-                    }}>LearnShe</h1>
+                    <div className="col-8 offset-1" >
+                        <h1 id="mainh">LearnShe</h1>
                     </div>
                     <div className="col-1">
                         <img src="https://i.postimg.cc/JnnsJJxq/user.png" alt="" style={{
@@ -26,20 +26,21 @@ const Navbar = () => {
                         }} />
                     </div>
                 </div>
-                <div className="row navs">
-                    <div className="col-1">Home</div>
-                    <div className="col-1">Services</div>
-                    <div className="col-1">Jobs</div>
-                    <div className="col-1">Recruiters</div>
-                    <div className="col">
-                        <form className="d-flex" role="search">
-                        <input className="form-control me-3 ms-2" type="search" placeholder="Search" aria-label="Search"/>
-                            <button className="btn btn-outline-success" type="submit">Search</button>
+                <div className="row navs">       
+                    <div className="col-1"><Link className="links" to="/">  Home</Link></div>
+                    <div className="col-1"><Link className="links" to="/Services">  Services</Link></div>
+                    <div className="col-1"><Link className="links" to="/Jobs">  Jobs</Link></div>
+                    <div className="col-1"><Link className="links" to="/Recruiters">  Recruiters</Link></div>
+                    <div className="col-5 offset-3">
+                        <form className="d-flex" role="search" >
+                            <input className="form-control me-3 ms-2" type="search" placeholder="Search" id="search" aria-label="Search"/>
+                            <button className="btn btn-primary" type="submit">Search</button>
                         </form>
                     </div>
                 </div>
              </div>
             </div>
+            <Extra/>
         </nav>
     );
 }

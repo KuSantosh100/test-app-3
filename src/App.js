@@ -8,12 +8,24 @@ import { BrowserRouter as Router,Route,Switch } from 'react-router-dom';
 import Navbar from './components/Navbar';
 function App() {
     return(
-      <div className="App">
-      <Navbar/>
-      {/* <SignIn />
-      <SignUp />
-      <AuthDetails /> */}
-    </div>
+      <Router>
+        <div className="App">
+          <Navbar/>
+          <div className="content">
+            <Switch>
+              <Route exact path="/login">
+                <SignIn />
+              </Route>
+              <Route exact path="/signUp">
+                <SignUp />
+              </Route>
+            </Switch>
+          </div>
+          {/* <SignIn />
+          <SignUp />
+          <AuthDetails /> */}
+        </div>
+      </Router>
     );
   }
   
