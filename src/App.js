@@ -4,12 +4,15 @@ import './App.css';
 import SignIn from './components/auth/signIn';
 import SignUp from './components/auth/signUp';
 import AuthDetails from './components/auth/authDetails';
+import { BrowserRouter as Router,Route,Switch } from 'react-router-dom';
+import Navbar from './components/Navbar';
 function App() {
     return(
       <div className="App">
-      <SignIn />
+      <Navbar/>
+      {/* <SignIn />
       <SignUp />
-      <AuthDetails />
+      <AuthDetails /> */}
     </div>
     );
   }
