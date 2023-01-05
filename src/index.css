@@ -11,3 +11,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+/* .container,
+.container-fluid{
+  padding: 2em;
+} */
+.panel{
+  /* border-radius: 0.3rem; */
+  /* padding: 1rem; */
+  /* margin-bottom: 1rem; */
+  background-color: #ffffff6d;
+  color: #000000;
+}
+.navbar{
+  background-image: url(https://i.postimg.cc/0yzFLShM/pexels-aboodi-vesakaran-12984939.jpg);
+  height: 500px;
+  margin-top: 0;
+}
+.navs{
+  padding-bottom: 15px;
+  font-weight: 600;
+}
+.site-name{
+  width: 95%;
+  margin: 30px;
+}
