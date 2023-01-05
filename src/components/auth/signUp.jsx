@@ -1,8 +1,11 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
-import { auth } from "../firebase";
+import { auth,db } from "../firebase";
+import { doc, setDoc } from "firebase/firestore"; 
 
 const SignUp = () => {
+  const [name, setName] = useState("");
+  const [skill, setSkill] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -10,7 +13,12 @@ const SignUp = () => {
     e.preventDefault();
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        console.log(userCredential);
+        setDoc(doc(db, "users", email), {
+          name: name,
+          skills: skill,
+          email: email
+        });
+        console.log('added email: '+email);
       })
       .catch((error) => {
         console.log(error);
@@ -22,10 +30,22 @@ const SignUp = () => {
       <form onSubmit={signUp}>
         <h1>Create Account</h1>
         <input
+          type="name"
+          placeholder="Enter your name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        ></input>
+        <input
           type="email"
           placeholder="Enter your email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+        ></input>
+        <input
+          type="skills"
+          placeholder="Enter your skills (separated by commas) "
+          value={skill}
+          onChange={(e) => setSkill(e.target.value)}
         ></input>
         <input
           type="password"
